@@ -1,9 +1,5 @@
 const App = () => {
-  return (
-    <div>
-      <h1> I'm learning react </h1>
-    </div>
-  )
+  return <div></div>
 }
 
 export default App
