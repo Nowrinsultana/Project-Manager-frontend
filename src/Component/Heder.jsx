@@ -22,7 +22,7 @@ const Heder = () => {
               fontWeight: 'bold',
             }}
           >
-            Home
+            Dashboard
           </Link>
         </li>
         <li>

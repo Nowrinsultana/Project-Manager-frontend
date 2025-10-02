@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Signup = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const navigate = useNavigate() // ✅ hook for navigation
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -30,10 +32,13 @@ const Signup = () => {
 
       console.log('Signup success:', data)
 
-      // Example: save token
+      // Save token
       localStorage.setItem('token', data.token)
 
       alert('Signup successful!')
+
+      // ✅ Redirect to home after signup
+      navigate('/')
     } catch (err) {
       console.error('Error:', err.message)
       alert(err.message)

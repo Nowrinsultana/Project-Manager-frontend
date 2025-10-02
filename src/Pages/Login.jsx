@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { GoogleLogin } from '@react-oauth/google'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -21,6 +23,9 @@ const Login = () => {
 
       const data = await res.json()
       if (!res.ok) throw new Error(data.error || 'Login failed')
+      localStorage.setItem('token', data.token)
+      alert('Login successful!')
+      navigate('/') // 👈 redirects to home page
 
       localStorage.setItem('token', data.token)
       alert('Login successful!')
@@ -39,6 +44,9 @@ const Login = () => {
 
       const data = await res.json()
       if (!res.ok) throw new Error(data.error || 'Google login failed')
+      localStorage.setItem('token', data.token)
+      alert('Login successful!')
+      navigate('/') // 👈 redirects to home page
 
       localStorage.setItem('token', data.token)
       alert('Google login successful!')

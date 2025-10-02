@@ -1,7 +1,7 @@
 import Footer from './Component/Footer'
 import Heder from './Component/Heder'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './Pages/Home'
+import Dashboard from './Pages/Dashboard'
 import Login from './Pages/Login'
 import Signup from './Pages/Signup'
 
@@ -11,7 +11,7 @@ const App = () => {
       <div>
         <Heder />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>
